@@ -3,9 +3,6 @@
 # Autor: Diego Aaron Figueroa Campos
 # Fecha: 01 de julio de 2019
 
-# Librerías
-import os
-
 # Variables globales
 lista = []
 
@@ -27,11 +24,18 @@ def buscarItem(dato):
         print("\nEse Item no existe en la lista...")
 
 #--------------------------------------------------------------------
-# Función para agregar items a la lista
+# Función para modificar items a la lista
 #--------------------------------------------------------------------
 
-def agregarItem(dato):
-    lista.append(dato)
+def modificarItem(dato):
+    if dato in lista:
+        pos = lista.index(dato)
+        nuevo = input("\nIngrese el nuevo valor del item: ")
+        lista.remove(dato)
+        lista.insert(pos, nuevo)
+        print("\nEl item ",nuevo," ha sido modificado con éxito...")
+    else:
+        print("\nEse Item no existe en la lista...")
 
 #--------------------------------------------------------------------
 # Función para borrar items a la lista
@@ -50,8 +54,12 @@ def eliminarItem(dato):
 #--------------------------------------------------------------------
 
 def imprimirLista():
-    for i, valor in enumerate(lista):
-        print(str(i) + " - "+ valor)
+    if len(lista) == 0:
+        print("\nNo hay items registrados en la lista")
+    else:
+        print("\n*** Imprimiendo items de la lista ***")
+        for i, valor in enumerate(lista):
+            print(str(i) + " - "+ valor)
 
 # Función principal
 def main():
@@ -68,24 +76,24 @@ def main():
         opc = int(input("\nElija una opción entre 1 y 6: "))
 
         if(opc == 1):
-            item = input("\nIntroduce valor del elemento: ")
+            item = input("\nIntroduce el item a agregar: ")
             agregarItem(item)
-            lista.
         elif(opc == 2):
-            print("")
+            item = input("\nIntroduce el item a buscar: ")
+            buscarItem(item)
         elif(opc == 3):
-            print("")
+            item = input("\nIntroduce el item a modificar: ")
+            modificarItem(item)
         elif(opc == 4):
-            print("")
+            item = input("\nIntroduce el item a eliminar: ")
+            eliminarItem(item)
         elif(opc == 5):
-            print("")
+            imprimirLista()
         elif(opc == 6):
             ciclo = False
             print("\n*** Fin del programa ***")
         else:
             print("\nSelecciona un entero entre 1 y 6")
-        #Borrar pantalla
-        os.system ("cls") 
 
 #Inicia programa principal
 if __name__ == "__main__" :
