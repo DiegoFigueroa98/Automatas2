@@ -46,6 +46,7 @@ def t_error(t):
    
 # Prueba de ingreso
 def main():
+    print("*** Análisis léxico de la sentencia printf ***")
     # instanciamos el analizador lexico
     analizador = lex.lex()
     while True:
