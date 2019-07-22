@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Signin Template · Bootstrap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="signin.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    
+    <script type="text/javascript">
+      $(function() {
+        $('#btoAgregar').click(function() {
+    
+          $.ajax({
+              url: '/Agregar',
+              data: $('form').serialize(),
+              type: 'POST',
+              success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+          });
+        });
+      });
+    </script>
+
+  </head>
+  <body class="text-center">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="showDashBoard">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="showAgregar">Agregar <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="showEliminar">Eliminar <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="showModificar">Modificar <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="showReporte">Reporte <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <form class="form-signin">
+        <main role="main" class="flex-shrink-0">
+        <br>
+        <br>
+        <h1 align="left">Agregue sus datos</h1>
+      <label for="inputNombre" class="sr-only">Nombre</label>
+      <input type="text" style="width:300px;height:50px" name="inputNombre" id="inputNombre" class="form-control" placeholder="Nombre">
+      <label for="inputSueldo" class="sr-only">Sueldo</label>
+      <input type="text" style="width:300px;height:50px" name="inputSueldo" id="inputSueldo" class="form-control" placeholder="Sueldo">
+      <button id="btoAgregar" class="btn btn-lg btn-primary btn-block" type="button" style="width:150px;height:50px">Agregar</button>
+    </form>
+  </body>
+</html>
